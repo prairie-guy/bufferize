@@ -2,7 +2,7 @@
 Formulate Chemical and Biological Buffers from Reagents
 
 ### Overview
-The idea for `bufferize.py` is to make it easy to formulate buffers. Protocols often stipulate the final concentrations of reagents, but don't give the actual recipe to mix the buffers as the protocol authors are not aware of the stock concentrations in a specific lab. Once the stock concentrations are known, it is not difficult to then formulate the buffers. It is however, tedious and error-prone. That is the purpose of `bufferize.py`
+The idea behind `bufferize.py` is to make it easy to formulate buffers. Protocols often stipulate the final concentrations of reagents, but don't give the actual recipe to mix the buffers since the protocol authors are not aware of the stock concentrations in a specific lab. Once the stock concentrations are known, it is not difficult to then formulate the buffers. It is however, tedious and error-prone. . . That is the purpose for `bufferize.py`
 
 ```
 bufferize -h
@@ -35,7 +35,7 @@ git clone https://github.com/prairie-guy/bufferize.git
 
 ### Example
 ```
-./bufferize.py SDS_lysis_buffer.csv "200 ml" --buffer_name "SDS Buffer" --solvent "DNase Free H20"
+python bufferize.py SDS_lysis_buffer.csv "200 ml" --buffer_name "SDS Buffer" --solvent "DNase Free H20"
 Tris-HCl pH7.5 ,1M,10mM,2.00 ml
 NaCl ,5M,150mM,6.00 ml
 EDTA ,500mM,1mM,400.00 µl
