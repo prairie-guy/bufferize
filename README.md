@@ -10,7 +10,7 @@ Requires Python 3+
 
 ``` 
 pip install pint
-git clone https://github.com/prairie-guy/bufferize.gi
+git clone https://github.com/prairie-guy/bufferize.git
 ```
 
 
