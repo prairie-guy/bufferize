@@ -8,14 +8,16 @@ The idea for `bufferize.py` is to make it easy to formulate buffers. Protocols o
 bufferize -h
 usage: bufferize [-h] [--buffer_name BUFFER_NAME] [--solvent_name SOLVENT_NAME] reagents_file final_volume
 
-Formulates a buffer based upon the reagents listed in a a csv file `reagents_file`, with three entries per row: `name`, `init_conc` and `final_conc`. The two concentrations need to include units of
-concentrations: uM, mM, M, x or %. The `final_volume` is also required. It should include a unit of volume: uL, ml or l. Optionally, `buffer_name`, `solvent_name` can be provided. The output is a csv file
-named by appending the final_vol to the orginal reagents_file.
+Formulates a buffer based upon the reagents listed in a a csv file `reagents_file`, with three entries 
+per row: `name`, `init_conc` and `final_conc`. The two concentrations need to include units of 
+concentrations: uM, mM, M, x or %. The `final_volume` is also required. It should include a unit 
+of volume: uL, ml or l. Optionally, `buffer_name`, `solvent_name` can be provided. The output is 
+a csv file named by appending the final_vol to the orginal reagents_file.
 
 positional arguments:
   reagents_file         The reagents_file to the csv file
   final_volume          The total desired amount of buffer. It needs to be a string and must include units.
-yy
+
 options:
   -h, --help            show this help message and exit
   --buffer_name BUFFER_NAME
