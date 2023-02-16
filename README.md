@@ -5,6 +5,15 @@ Formulate Chemical and Biological Buffers from Reagents
 The idea for `bufferize.py` is to make it easy to formulate buffers. Protocols often stipulate the final concentrations of reagents, but don't give the actual recipe to mix the buffers as the protocol authors are not aware of the stock concentrations in a specific lab. Once the stock concentrations are known, it is not difficult to then formulate the buffers. It is however, tedious and error-prone. That is the purpose of `bufferize.py`
 
 
+### Installation
+Requires Python 3+
+
+``` 
+pip install pint
+git clone https://github.com/prairie-guy/bufferize.gi
+```
+
+
 ```
 bufferize -h
 usage: bufferize [-h] [--buffer_name BUFFER_NAME] [--solvent_name SOLVENT_NAME] reagents_file final_volume
@@ -16,7 +25,7 @@ named by appending the final_vol to the orginal reagents_file.
 positional arguments:
   reagents_file         The reagents_file to the csv file
   final_volume          The total desired amount of buffer. It needs to be a string and must include units.
-
+yy
 options:
   -h, --help            show this help message and exit
   --buffer_name BUFFER_NAME
@@ -60,3 +69,6 @@ Triton X-100    10%     1%    20.00 ml
 SDS             10%     0.10% 2.00 ml
 DNase Free H20                169.60 ml
 ```
+
+
+
