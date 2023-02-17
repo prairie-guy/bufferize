@@ -1,8 +1,11 @@
 # bufferize
-Formulate Chemical and Biological Buffers from Reagents
+# Formulate Chemical and Biological Buffers from Reagents
+
+#### Developed by C. Bryan Daniels
+Though I've tested `bufferize` for my own purposes. Please double check that its results seem reasonable. Feel free to ontact me with issues, suggestions or questions at cdaniels@uchicago.edu
 
 ### Overview
-The idea behind `bufferize.py` is to make it easy to formulate buffers. Protocols often stipulate the final concentrations of reagents, but don't give the actual recipe to mix the buffers since the protocol authors are not aware of the stock concentrations in a specific lab. Once the stock concentrations are known, it is not difficult to then formulate the buffers. It is however, tedious and error-prone. . . That is the purpose for `bufferize.py`
+The idea behind `bufferize.py` is to make it easy to formulate buffers. Protocols often stipulate the final concentrations of reagents, but don't give the actual recipe to mix the buffers since the protocol authors are not aware of the stock concentrations in a specific lab. Once the stock concentrations are known, it is not difficult to then formulate the buffers. It is however, tedious and error-prone, which is what `bufferize.py` attempts to do.
 
 ```
 bufferize -h
@@ -32,18 +35,32 @@ Requires Python 3+
 pip install pint
 git clone https://github.com/prairie-guy/bufferize.git
 ```
+### Usage
+To use `bufferize` you will need to decide how much of the final buffer you will need. Also required is a `reagents.csv` file that includes the name of the reagents, its stock concentration and the final concentration. Units of concentration need to be provied: mM, M, g/ml, %, X etc.
+
+The script does basic error checking, but the requirments for the `reagents.csv` file are:
+- CSV format, i.e, Comma Seperated Values. Quotes are not needed. Do not use a comma except to seperate elements.
+- Do not use a header, i.e., do NOT include a line similiar to `name`, `initial`, `final` at the top of the `reagents.csv` file.
+- Each line needs to have exactly three elements seperated by a single comma: `name of reagent` (a string), `initial_conc` and `final_conc` (for both a number followed by a unit of concentration: mM, M, g/ml, %, X,etc). All other units will fail.
+- All the traditional modifications of units (or their abbreviations) are recognized: pico, nano, micro, milli, kilo, etc.
+- Here is an example line: EDTA pH 7.4, 1M, 2.5 mM
+- Note that for concentrations, spacing between the number and its unit is optional
+- When using `%` or `X`, be sure to use the same unit for `initial_conc` and `final_conc`
+
+In addition to the `reagents.csv`file, when running the program, you must stipulate the `final_volume`. Optionally, you can include the `buffer_name` (which will be included in the final output, which will be another csv file. Also optional are the `solvent`, which by default is `water`.
+
+The output will be a new csv file named by appending the `final_volume` to the name of the `reagents.csv` file name.
+
+The required volume of solvent (water by default) is included in the final csv file.
+
+**Note: At the present, `bufferize.py` and the `reagents.csv` file must be located in the same directory.**
 
 ### Example
 ```
 python bufferize.py SDS_lysis_buffer.csv "200 ml" --buffer_name "SDS Buffer" --solvent "DNase Free H20"
-Tris-HCl pH7.5 ,1M,10mM,2.00 ml
-NaCl ,5M,150mM,6.00 ml
-EDTA ,500mM,1mM,400.00 µl
-Triton X-100 ,10%,1%,20.00 ml
-SDS ,10%,0.10%,2.00 ml
 ```
 
-```SDS_lysis_buffer.csv```
+```Input CSV File: SDS_lysis_buffer.csv```
 
 ```
 Tris-HCl pH7.5  1M    10mM
@@ -53,7 +70,7 @@ Triton X-100    10%   1%
 SDS             10%   0.10%
 ```
 
-```SDS_lysis_buffer.csv_00ml.csv```
+```Output CSV File: SDS_lysis_buffer_200ml.csv```
 
 ```
 SDS Buffer			
