@@ -32,7 +32,7 @@ def is_conc(conc):
     except:
         return False
     else:
-        return q.is_compatible_with('M') or q.dimensionless
+        return q.is_compatible_with('M') or q.is_compatible_with('g/ml') or q.dimensionless
 
 def init_vol(init_conc, final_conc, final_vol):
     """Given the init_conc, final_conc and final_vol,
