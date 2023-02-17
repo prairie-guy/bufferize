@@ -49,9 +49,11 @@ The script does basic error checking, but the requirements for the `reagents.csv
 
 In addition to the `reagents.csv`file, when running the program, you must stipulate the `final_volume`. Optionally, you can include the `buffer_name` (which will be included in the final output, which will be another csv file. Also optional are the `solvent`, which by default is `water`.
 
+The required volume of solvent (water by default) is included in the final csv file.
+
 The output will be a new csv file named by appending the `final_volume` to the name of the `reagents.csv` file name.
 
-The required volume of solvent (water by default) is included in the final csv file.
+For properly formatting the new csv file, use Excel, Numbers or an other program.
 
 **Note: At the present, `bufferize.py` and the `reagents.csv` file must be located in the same directory.**
 
