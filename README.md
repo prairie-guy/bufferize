@@ -2,7 +2,7 @@
 # Formulate Chemical and Biological Buffers from Reagents
 
 #### Developed by C. Bryan Daniels
-Though I've tested `bufferize` for my own purposes. Please double check that its results seem reasonable. Feel free to ontact me with issues, suggestions or questions at cdaniels@uchicago.edu
+Though I've tested `bufferize` for my own purposes. Please double check that its results seem reasonable. Feel free to contact me with issues, suggestions or questions at cdaniels@uchicago.edu
 
 ### Overview
 The idea behind `bufferize.py` is to make it easy to formulate buffers. Protocols often stipulate the final concentrations of reagents, but don't give the actual recipe to mix the buffers since the protocol authors are not aware of the stock concentrations in a specific lab. Once the stock concentrations are known, it is not difficult to then formulate the buffers. It is however, tedious and error-prone, which is what `bufferize.py` attempts to do.
@@ -15,7 +15,7 @@ Formulates a buffer based upon the reagents listed in a a csv file `reagents_fil
 per row: `name`, `init_conc` and `final_conc`. The two concentrations need to include units of 
 concentrations: uM, mM, M, x or %. The `final_volume` is also required. It should include a unit 
 of volume: uL, ml or l. Optionally, `buffer_name`, `solvent_name` can be provided. The output is 
-a csv file named by appending the final_vol to the orginal reagents_file.
+a csv file named by appending the final_vol to the original reagents_file.
 
 positional arguments:
   reagents_file         The reagents_file to the csv file
@@ -36,12 +36,12 @@ pip install pint
 git clone https://github.com/prairie-guy/bufferize.git
 ```
 ### Usage
-To use `bufferize` you will need to decide how much of the final buffer you will need. Also required is a `reagents.csv` file that includes the name of the reagents, its stock concentration and the final concentration. Units of concentration need to be provied: mM, M, g/ml, %, X etc.
+To use `bufferize` you will need to decide how much of the final buffer you will need. Also required is a `reagents.csv` file that includes the name of the reagents, its stock concentration and the final concentration. Units of concentration need to be provided: mM, M, g/ml, %, X etc.
 
-The script does basic error checking, but the requirments for the `reagents.csv` file are:
-- CSV format, i.e, Comma Seperated Values. Quotes are not needed. Do not use a comma except to seperate elements.
-- Do not use a header, i.e., do NOT include a line similiar to `name`, `initial`, `final` at the top of the `reagents.csv` file.
-- Each line needs to have exactly three elements seperated by a single comma: `name of reagent` (a string), `initial_conc` and `final_conc` (for both a number followed by a unit of concentration: mM, M, g/ml, %, X,etc). All other units will fail.
+The script does basic error checking, but the requirements for the `reagents.csv` file are:
+- CSV format, i.e, Comma Separated Values. Quotes are not needed. Do not use a comma except to separate elements.
+- Do not use a header, i.e., do NOT include a line similar to `name`, `initial`, `final` at the top of the `reagents.csv` file.
+- Each line needs to have exactly three elements separated by a single comma: `name of reagent` (a string), `initial_conc` and `final_conc` (for both a number followed by a unit of concentration: mM, M, g/ml, %, X,etc). All other units will fail.
 - All the traditional modifications of units (or their abbreviations) are recognized: pico, nano, micro, milli, kilo, etc.
 - Here is an example line: EDTA pH 7.4, 1M, 2.5 mM
 - Note that for concentrations, spacing between the number and its unit is optional

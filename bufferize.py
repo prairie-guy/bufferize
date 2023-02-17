@@ -4,13 +4,13 @@
 # bufferize.py
 # 2/7/2023
 #
-#
+# The python package `pint` provides core functionality to this program. It is worth using for any program involving units of all types. https://github.com/hgrecco/pint
 
 import re, csv, argparse
 from pathlib import Path
 from pint import UnitRegistry
 
-# Instantiate the Units Registry, which create a Quality Contructor, which then parses a 'unit' string
+# Instantiate the Units Registry, which create a Quality Constructor, which then parses a 'unit' string
 Q = UnitRegistry().Quantity
 
 def is_vol(vol):
@@ -25,7 +25,7 @@ def is_vol(vol):
 
 def is_conc(conc):
     """Is `conc` well formed and having the units of concentration.
-       '5 mM', '5 %' and '5x' are well formed. '5 cm' and '5' are not. """
+       '5 mM', '5 %' and '5x' are well formed. '5 cm' and '5' are not."""
     conc = re.sub(r'x|X|%','', conc)
     try:
         q = Q(conc)
@@ -63,6 +63,12 @@ def is_valid_reagents_file(reagents_file):
         return True
 
 def formulate_buffer(reagents_file, final_vol, buffer_name, solvent_name):
+    """Create the final csv file for output.
+        `reagents_file` is a csv file comprised of a `reagent_name`, `init_conc` and `final_conc`
+        `final_vol` is the final buffer volume that is being formulated
+        `buffer_name` is the name included in the final csv file of the buffer. From the command-line, the default is None
+        `solvent_name` is the name solvent used to bring the buffer to the `final_vol`. From the command-line, the default is Water
+    """
     if not is_vol(final_vol):
         print(f'final_vol of {final_vol} is not well formed or has wrong units. Sample usage: "200 ml"')
         return
@@ -86,7 +92,7 @@ def formulate_buffer(reagents_file, final_vol, buffer_name, solvent_name):
 
 if __name__ == "__main__":
 
-# Create a Command Line Tool for bufferize.py
+# Create a Command-line Tool for bufferize.py
     parser = argparse.ArgumentParser(
         prog = 'bufferize',
         description = """
@@ -95,7 +101,7 @@ if __name__ == "__main__":
         units of concentrations: uM, mM, M, x or %.
         The `final_volume` is also required. It should include a unit of volume: uL, ml or l.
         Optionally, `buffer_name`, `solvent_name` can be provided.
-        The output is a csv file named by appending the final_vol to the orginal reagents_file.""")
+        The output is a csv file named by appending the final_vol to the original reagents_file.""")
 
 
     parser.add_argument('reagents_file', type=str, help="The reagents_file to the csv file" )
