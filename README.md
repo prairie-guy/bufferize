@@ -83,6 +83,7 @@ Triton X-100    10%     1%    20.00 ml
 SDS             10%     0.10% 2.00 ml
 DNase Free H20                169.60 ml
 ```
-
+#### Attribution
+The core functionality of `bufferize` is provided by the python package `pint` https://github.com/hgrecco/pint, which enable simple unit conversions. It has much more functionality than I've utilized here. It is worth checking out if you are doing anything related units or all types. 
 
 
