@@ -59,7 +59,7 @@ For properly formatting the new csv file, use Excel, Numbers or an other program
 
 ### Example
 ```
-python bufferize.py SDS_lysis_buffer.csv "200 ml" --buffer_name "SDS Buffer" --solvent "DNase Free H20"
+python bufferize.py --buffer_name "SDS Buffer" --solvent "DNase Free H20" SDS_lysis_buffer.csv "200 ml"
 ```
 
 ```Input CSV File: SDS_lysis_buffer.csv```
